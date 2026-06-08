@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestión Administrativa — Fraylog</title>
+<link rel="icon" href="https://fraylog.com/wp-content/uploads/2021/08/cropped-faviconFraylog-270x270.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',system-ui,Arial,sans-serif}
+:root{--o:#e1462b;--od:#b5321a;--ol:#f07060;--dk:#1a1a1a;--gy:#f7f6f5;--bd:#e8e4e2;--w:#fff}
+a{text-decoration:none;color:inherit}
+html{scroll-behavior:smooth}
+.nav{background:var(--dk);height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;position:sticky;top:0;z-index:100;border-bottom:2px solid var(--o)}
+.nav-logo{display:flex;align-items:center}
+.nav-logo img{height:32px;filter:brightness(0) invert(1)}
+.nav-links{display:flex;gap:0;list-style:none}
+.nav-links li a{color:rgba(255,255,255,.7);font-size:12.5px;font-weight:500;padding:0 14px;line-height:62px;display:block;transition:color .15s}
+.nav-links li a:hover{color:#fff}
+.nav-links li a.active{color:var(--ol);border-bottom:2px solid var(--o)}
+.nav-cta{background:var(--o);color:#fff;font-size:12.5px;font-weight:700;padding:8px 16px;border-radius:3px;border:none;cursor:pointer;white-space:nowrap}
+.nav-cta:hover{background:var(--od)}
+.sp-hero{background:var(--dk);padding:48px 2.5rem 44px;border-bottom:3px solid var(--o)}
+.sp-back{display:inline-flex;align-items:center;gap:5px;color:rgba(255,255,255,.45);font-size:12px;font-weight:600;margin-bottom:22px;transition:color .15s}
+.sp-back:hover{color:var(--ol)}
+.sp-tag{color:var(--ol);font-size:10.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.sp-hero h1{font-size:36px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:14px}
+.sp-hero .lead{color:rgba(255,255,255,.62);font-size:15px;line-height:1.68;max-width:640px;margin-bottom:26px}
+.sp-chips{display:flex;gap:8px;flex-wrap:wrap}
+.sp-chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:3px;padding:6px 14px;color:rgba(255,255,255,.8);font-size:12px;font-weight:600}
+.sp-chip.accent{background:var(--o);border-color:transparent;color:#fff}
+.sp-wrap{padding:52px 2.5rem}
+.sp-grid{display:grid;grid-template-columns:1fr 320px;gap:52px;align-items:start}
+.sp-main h2{font-size:22px;font-weight:800;color:var(--dk);margin-bottom:14px}
+.sp-main p{color:#555;font-size:14.5px;line-height:1.7;margin-bottom:14px}
+.sp-main h3{font-size:11px;font-weight:800;color:#999;margin:26px 0 10px;text-transform:uppercase;letter-spacing:1.5px}
+.sp-main ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.sp-main ul li{display:flex;align-items:flex-start;gap:10px;color:#555;font-size:14px;line-height:1.55}
+.sp-main ul li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--o);margin-top:6px;flex-shrink:0}
+.sp-svc-row{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:8px}
+.sp-svc-item{background:var(--gy);border:1px solid var(--bd);border-radius:6px;padding:16px 18px;display:flex;align-items:flex-start;gap:12px}
+.sp-svc-item i{font-size:20px;color:var(--o);flex-shrink:0;margin-top:1px}
+.sp-svc-item h4{color:var(--dk);font-size:13px;font-weight:700;margin-bottom:3px}
+.sp-svc-item p{color:#777;font-size:12px;line-height:1.4}
+.sp-integrador{background:var(--dk);border-radius:6px;padding:22px 26px;margin:20px 0;border-left:3px solid var(--o);display:flex;align-items:flex-start;gap:16px}
+.sp-integrador i{font-size:28px;color:var(--ol);flex-shrink:0;margin-top:2px}
+.sp-integrador div h4{color:#fff;font-size:15px;font-weight:700;margin-bottom:6px}
+.sp-integrador div p{color:rgba(255,255,255,.65);font-size:13.5px;line-height:1.55}
+.sp-marcas{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.sp-marca{background:var(--gy);border:1px solid var(--bd);border-radius:3px;padding:6px 14px;font-size:12.5px;font-weight:700;color:var(--dk)}
+.sp-stat-card{background:var(--o);border-radius:6px;padding:20px 22px;margin-bottom:12px;color:#fff}
+.sp-stat-card-n{font-size:30px;font-weight:800}
+.sp-stat-card-l{font-size:12.5px;opacity:.82;margin-top:3px}
+.sp-stat-card.dark{background:var(--dk)}
+.sp-info-card{background:var(--gy);border:1px solid var(--bd);border-radius:6px;padding:20px;margin-bottom:12px}
+.sp-info-card h4{font-size:10.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#aaa;margin-bottom:14px}
+.sp-info-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px}
+.sp-info-row:last-child{margin-bottom:0}
+.sp-info-row i{font-size:16px;color:var(--o);flex-shrink:0;margin-top:1px}
+.sp-info-row p{color:#555;font-size:13px;line-height:1.5}
+.sp-info-row p strong{color:var(--dk);display:block;font-size:12px;margin-bottom:1px}
+.sp-iso-card{background:var(--gy);border:1px solid var(--bd);border-radius:6px;padding:16px 20px}
+.sp-iso-card h4{font-size:10.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#aaa;margin-bottom:12px}
+.sp-iso-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.sp-iso{font-size:10.5px;font-weight:700;color:#666;background:#fff;border:1px solid var(--bd);border-radius:2px;padding:5px 8px;text-align:center}
+.sp-sec{background:var(--gy);padding:40px 2.5rem;border-top:1px solid var(--bd)}
+.sp-sec h3{font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#aaa;margin-bottom:18px}
+.sp-related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.sp-rel-card{background:var(--w);border:1px solid var(--bd);border-radius:6px;padding:16px 18px;display:flex;align-items:center;gap:14px;transition:border-color .15s,box-shadow .15s}
+.sp-rel-card:hover{border-color:var(--ol);box-shadow:0 2px 12px rgba(225,70,43,.08)}
+.sp-rel-card i{font-size:22px;color:var(--o);flex-shrink:0}
+.sp-rel-card span{display:block;color:var(--dk);font-size:13px;font-weight:700;margin-bottom:2px}
+.sp-rel-card small{color:#888;font-size:11.5px}
+.footer{background:#111;padding:40px 2.5rem 22px}
+.footer-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:36px;margin-bottom:30px}
+.footer h5{color:#fff;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:13px}
+.footer p,.footer-link{color:rgba(255,255,255,.4);font-size:12.5px;line-height:2;display:block}
+.footer-link:hover{color:var(--ol)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:18px;display:flex;justify-content:space-between;align-items:center}
+.footer-bottom p{color:rgba(255,255,255,.22);font-size:12px}
+.socials{display:flex;gap:16px}
+.socials a{color:rgba(255,255,255,.3);font-size:18px;transition:color .15s}
+.socials a:hover{color:var(--o)}
+@media(max-width:768px){
+  .sp-hero{padding:36px 1.5rem 28px}
+  .sp-hero h1{font-size:26px}
+  .sp-wrap{padding:36px 1.5rem}
+  .sp-grid{grid-template-columns:1fr}
+  .sp-svc-row{grid-template-columns:1fr}
+  .sp-related-grid{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+  .footer-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">
+    <img src="https://fraylog.com/wp-content/uploads/2021/08/Recurso-13.png" alt="Fraylog" onerror="this.style.display='none'">
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="index.html#nosotros">Institucional</a></li>
+    <li><a href="index.html#servicios" class="active">Servicios</a></li>
+    <li><a href="index.html#sostenibilidad">Sostenibilidad</a></li>
+    <li><a href="index.html#equipo">Equipo</a></li>
+    <li><a href="index.html#contacto">Contacto</a></li>
+  </ul>
+  <a href="https://forms.office.com/r/pVkhYUePfG" target="_blank"><button class="nav-cta">Trabajá con nosotros</button></a>
+</nav>
+
+<div class="sp-hero">
+  <a href="index.html#servicios" class="sp-back">← Todos los servicios</a>
+  <div class="sp-tag">Servicios · Administración y Finanzas</div>
+  <h1>Gestión Administrativa</h1>
+  <p class="lead">Desde Montevideo, el equipo de gestión de Fraylog actúa como integrador de todas las empresas del grupo — con foco en eficiencia, calidad de la información y decisiones estratégicas.</p>
+  <div class="sp-chips">
+    <span class="sp-chip accent"><i class="ti ti-chart-bar"></i> Oficinas Montevideo</span>
+    <span class="sp-chip">Liquidación de sueldos</span>
+    <span class="sp-chip">Administración y finanzas</span>
+    <span class="sp-chip">7 empresas del grupo</span>
+  </div>
+</div>
+
+<div class="sp-wrap">
+  <div class="sp-grid">
+    <div class="sp-main">
+      <h2>El cerebro del grupo</h2>
+      <p>El equipo gerencial de Fraylog opera desde las oficinas en Montevideo y actúa como <strong>elemento integrador</strong> de todas las empresas del grupo: Kelgin, Biesar, Enfay, Lubeline, Ñendy, TRF y Motus.</p>
+      <p>Nuestra área de gestión mejora la eficiencia del conjunto a través de economías de escala en procesos administrativos, monitoreo de indicadores de gestión y toma de decisiones estratégicas.</p>
+
+      <div class="sp-integrador">
+        <i class="ti ti-git-merge"></i>
+        <div>
+          <h4>Rol integrador del grupo</h4>
+          <p>Desarrollamos soluciones en el marco de la gestión integral, con foco en calidad, seguridad y sostenibilidad para todas las empresas del grupo.</p>
+        </div>
+      </div>
+
+      <h3>Servicios administrativos</h3>
+      <div class="sp-svc-row">
+        <div class="sp-svc-item">
+          <i class="ti ti-users"></i>
+          <div><h4>Liquidación de sueldos</h4><p>Gestión completa de haberes para todo el personal del grupo.</p></div>
+        </div>
+        <div class="sp-svc-item">
+          <i class="ti ti-file-invoice"></i>
+          <div><h4>Informes contables</h4><p>Procesamiento de información contable y de gestión para cada empresa.</p></div>
+        </div>
+        <div class="sp-svc-item">
+          <i class="ti ti-receipt-tax"></i>
+          <div><h4>Liquidación de impuestos</h4><p>Cumplimiento fiscal y tributario de todas las empresas del grupo.</p></div>
+        </div>
+        <div class="sp-svc-item">
+          <i class="ti ti-currency-dollar"></i>
+          <div><h4>Administración y finanzas</h4><p>Gestión de fondos, flujos de caja y decisiones financieras del grupo.</p></div>
+        </div>
+        <div class="sp-svc-item">
+          <i class="ti ti-chart-line"></i>
+          <div><h4>KPIs y control de gestión</h4><p>Monitoreo de indicadores clave para detectar desvíos y optimizar la operación.</p></div>
+        </div>
+        <div class="sp-svc-item">
+          <i class="ti ti-briefcase"></i>
+          <div><h4>Estrategia y nuevos negocios</h4><p>Análisis de oportunidades y desarrollo comercial para el crecimiento del grupo.</p></div>
+        </div>
+      </div>
+
+      <h3>Empresas que gestiona</h3>
+      <div class="sp-marcas">
+        <span class="sp-marca">Kelgin</span>
+        <span class="sp-marca">Biesar</span>
+        <span class="sp-marca">Enfay</span>
+        <span class="sp-marca">Lubeline</span>
+        <span class="sp-marca">Ñendy</span>
+        <span class="sp-marca">TRF</span>
+        <span class="sp-marca">Motus</span>
+      </div>
+    </div>
+
+    <div class="sp-sidebar">
+      <div class="sp-stat-card">
+        <div class="sp-stat-card-n">7 empresas</div>
+        <div class="sp-stat-card-l">del grupo bajo gestión administrativa integrada</div>
+      </div>
+      <div class="sp-stat-card dark">
+        <div class="sp-stat-card-n">Montevideo</div>
+        <div class="sp-stat-card-l">sede de las oficinas de gestión y administración</div>
+      </div>
+
+      <div class="sp-info-card">
+        <h4>Detalles</h4>
+        <div class="sp-info-row">
+          <i class="ti ti-map-pin"></i>
+          <p><strong>Oficinas</strong>Gabriel Otero 6337 · Montevideo</p>
+        </div>
+        <div class="sp-info-row">
+          <i class="ti ti-git-merge"></i>
+          <p><strong>Rol</strong>Integrador de las empresas del grupo Fraylog</p>
+        </div>
+        <div class="sp-info-row">
+          <i class="ti ti-trending-up"></i>
+          <p><strong>Foco</strong>Calidad, seguridad, sostenibilidad y eficiencia</p>
+        </div>
+        <div class="sp-info-row">
+          <i class="ti ti-phone"></i>
+          <p><strong>Contacto directo</strong>2606 1032 · info@fraylog.com.uy</p>
+        </div>
+      </div>
+
+      <div class="sp-iso-card">
+        <h4>Certificaciones</h4>
+        <div class="sp-iso-grid">
+          <div class="sp-iso">ISO 9001:2015</div>
+          <div class="sp-iso">ISO 14001:2015</div>
+          <div class="sp-iso">ISO 39001:2012</div>
+          <div class="sp-iso">ISO 45001:2018</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sp-sec">
+  <h3>Otros servicios</h3>
+  <div class="sp-related-grid">
+    <a href="mantenimiento-compras.html" class="sp-rel-card">
+      <i class="ti ti-settings"></i>
+      <div><span>Mantenimiento</span><small>Central Logística Fray Bentos</small></div>
+    </a>
+    <a href="seguridad-vial-laboral.html" class="sp-rel-card">
+      <i class="ti ti-shield-check"></i>
+      <div><span>Seguridad Vial y Laboral</span><small>ISO 39001 · ISO 45001</small></div>
+    </a>
+    <a href="transporte-forestal.html" class="sp-rel-card">
+      <i class="ti ti-truck"></i>
+      <div><span>Transporte Forestal</span><small>+100 unidades · Kelgin · Biesar</small></div>
+    </a>
+  </div>
+</div>
+
+<footer class="footer" id="contacto">
+  <div class="footer-grid">
+    <div>
+      <h5>Fraylog</h5>
+      <p>Grupo de empresas especializado en logística forestal integral. Más de 15 años moviendo madera en Uruguay. Fundado en 2007.</p>
+    </div>
+    <div>
+      <h5>Servicios</h5>
+      <a href="transporte-forestal.html" class="footer-link">Transporte forestal</a>
+      <a href="productos-quimicos.html" class="footer-link">Transporte químicos</a>
+      <a href="acopio-de-madera.html" class="footer-link">Acopio de madera</a>
+      <a href="carga-madera.html" class="footer-link">Carga de madera</a>
+      <a href="seguridad-vial-laboral.html" class="footer-link">Seguridad vial</a>
+      <a href="mantenimiento-compras.html" class="footer-link">Mantenimiento</a>
+    </div>
+    <div>
+      <h5>Empresa</h5>
+      <a href="index.html#nosotros" class="footer-link">Institucional</a>
+      <a href="index.html#sostenibilidad" class="footer-link">Sostenibilidad</a>
+      <a href="index.html#equipo" class="footer-link">Equipo</a>
+      <a href="index.html#contacto" class="footer-link">Contacto</a>
+      <a href="https://forms.office.com/r/pVkhYUePfG" class="footer-link">Trabajá con nosotros</a>
+    </div>
+    <div>
+      <h5>Contacto</h5>
+      <p>Gabriel Otero 6337<br>Montevideo, Uruguay</p>
+      <a href="tel:+59826061032" class="footer-link">2606 1032</a>
+      <a href="mailto:info@fraylog.com.uy" class="footer-link">info@fraylog.com.uy</a>
+      <p style="margin-top:10px">Bases operativas:<br>Fray Bentos · Centenario</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Fraylog Terminal Logística · Todos los derechos reservados</p>
+    <div class="socials">
+      <a href="https://uy.linkedin.com/company/fraylog" target="_blank"><i class="ti ti-brand-linkedin"></i></a>
+      <a href="https://www.instagram.com/fraylog.uy/" target="_blank"><i class="ti ti-brand-instagram"></i></a>
+      <a href="https://www.youtube.com/channel/UC6qZSOjNJjTylZslmhwFQhQ" target="_blank"><i class="ti ti-brand-youtube"></i></a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
