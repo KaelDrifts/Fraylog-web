@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fraylog — Logística Forestal Integral · Uruguay</title>
+<link rel="icon" href="https://fraylog.com/wp-content/uploads/2021/08/cropped-faviconFraylog-270x270.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',system-ui,Arial,sans-serif}
+:root{--o:#e1462b;--od:#b5321a;--ol:#f07060;--dk:#1a1a1a;--gy:#f7f6f5;--bd:#e8e4e2;--w:#fff}
+a{text-decoration:none;color:inherit}
+html{scroll-behavior:smooth}
+
+/* NAV */
+.nav{background:var(--dk);height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;position:sticky;top:0;z-index:100;border-bottom:2px solid var(--o)}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo img{height:32px;filter:brightness(0) invert(1)}
+.nav-logo span{color:#fff;font-size:18px;font-weight:800;letter-spacing:1.5px}
+.nav-links{display:flex;gap:0;list-style:none}
+.nav-links li a{color:rgba(255,255,255,.7);font-size:12.5px;font-weight:500;padding:0 14px;line-height:62px;display:block;transition:color .15s}
+.nav-links li a:hover{color:#fff}
+.nav-links li a.active{color:var(--ol);border-bottom:2px solid var(--o)}
+.nav-cta{background:var(--o);color:#fff;font-size:12.5px;font-weight:700;padding:8px 16px;border-radius:3px;border:none;cursor:pointer;white-space:nowrap}
+.nav-cta:hover{background:var(--od)}
+
+/* HERO */
+.hero{background:var(--w);padding:64px 2.5rem 52px;border-bottom:1px solid var(--bd);position:relative;overflow:hidden}
+.hero-tag{display:inline-block;background:var(--o);color:#fff;font-size:10px;font-weight:800;letter-spacing:2px;padding:4px 10px;border-radius:2px;text-transform:uppercase;margin-bottom:16px}
+.hero h1{font-size:38px;font-weight:800;color:var(--dk);line-height:1.2;margin-bottom:14px;max-width:560px}
+.hero h1 span{color:var(--o)}
+.hero-sub{color:#555;font-size:15px;line-height:1.65;max-width:520px;margin-bottom:28px}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn-o{background:var(--o);color:#fff;padding:12px 24px;border-radius:3px;font-weight:700;font-size:13.5px;border:none;cursor:pointer;display:inline-block}
+.btn-o:hover{background:var(--od)}
+.btn-w{background:var(--w);color:var(--dk);padding:12px 24px;border-radius:3px;font-weight:600;font-size:13.5px;border:1.5px solid var(--bd);cursor:pointer;display:inline-block}
+.btn-w:hover{border-color:#bbb}
+.hero-badge{position:absolute;top:64px;right:2.5rem;background:var(--gy);border:1px solid var(--bd);border-left:3px solid var(--o);border-radius:4px;padding:16px 20px;max-width:240px}
+.hero-badge strong{color:var(--o);font-size:13px;display:block;margin-bottom:4px}
+.hero-badge p{font-size:12px;color:#555;line-height:1.6}
+
+/* STATS */
+.stats{background:var(--o);display:grid;grid-template-columns:repeat(5,1fr)}
+.stat{text-align:center;padding:18px 8px;border-right:1px solid rgba(255,255,255,.2)}
+.stat:last-child{border:none}
+.stat-n{color:#fff;font-size:24px;font-weight:800}
+.stat-l{color:rgba(255,255,255,.78);font-size:10.5px;margin-top:3px;letter-spacing:.2px}
+
+/* SECTION */
+.sec{padding:56px 2.5rem}
+.sec.gray{background:var(--gy)}
+.sec.dark{background:var(--dk)}
+.tag{color:var(--o);font-size:10.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
+.sec-h{font-size:24px;font-weight:800;color:var(--dk);margin-bottom:8px}
+.sec-h.w{color:#fff}
+.sec-p{color:#666;font-size:14.5px;line-height:1.65;max-width:600px;margin-bottom:28px}
+.sec-p.w{color:rgba(255,255,255,.65)}
+.divider{height:1px;background:var(--bd)}
+
+/* NOSOTROS */
+.nosotros-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.nosotros-text p{color:#555;font-size:14px;line-height:1.72;margin-bottom:14px}
+.values-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.val-card{background:var(--gy);border-radius:4px;padding:13px 15px;border-left:3px solid var(--o)}
+.val-card h5{color:var(--dk);font-size:13px;font-weight:700;margin-bottom:3px}
+.val-card p{color:#666;font-size:12px;line-height:1.5}
+
+/* NEWS */
+.news-banner{background:var(--dk);border-radius:6px;padding:20px 24px;display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.nb{background:var(--o);color:#fff;font-size:10px;font-weight:800;padding:5px 11px;border-radius:2px;letter-spacing:.8px;white-space:nowrap;text-transform:uppercase}
+.news-banner p{color:rgba(255,255,255,.8);font-size:13.5px;line-height:1.5;flex:1}
+.news-banner p strong{color:#fff}
+.news-banner a{color:var(--ol);font-size:12.5px;font-weight:700;white-space:nowrap}
+.news-banner.light{background:#f7f6f5;border:1px solid #e8e4e2}
+.news-banner.light p{color:#555}
+.news-banner.light p strong{color:var(--dk)}
+.news-banner.light a{color:var(--o)}
+
+/* SUST */
+.sust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sust-card{background:var(--w);border:1px solid var(--bd);border-radius:6px;padding:22px;border-top:3px solid var(--o)}
+.sust-card .ico{font-size:22px;margin-bottom:10px}
+.sust-card h4{color:var(--dk);font-size:14px;font-weight:700;margin-bottom:6px}
+.sust-card p{color:#666;font-size:13px;line-height:1.55}
+.pill{display:inline-block;background:#fff3f1;color:var(--od);font-size:10px;font-weight:700;padding:3px 9px;border-radius:2px;margin-top:10px;border:1px solid #fcc}
+.pill.yellow{background:#fff8e8;color:#7a5200;border-color:#f5d98a}
+.pill.green{background:#f0fff4;color:#1a7a3a;border-color:#a3d9b3}
+.pill.gray{background:#f5f5f5;color:#555;border-color:#ddd}
+
+/* SERVICIOS */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.svc-card{border:1px solid var(--bd);border-radius:6px;background:var(--w);overflow:hidden;transition:border-color .2s,box-shadow .2s}
+.svc-card:hover{border-color:var(--ol);box-shadow:0 2px 12px rgba(225,70,43,.08)}
+.svc-head{background:var(--gy);padding:18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--bd)}
+.svc-head i{font-size:22px;color:var(--o)}
+.svc-head h4{color:var(--dk);font-size:13.5px;font-weight:700}
+.svc-body{padding:14px 16px}
+.svc-body p{color:#666;font-size:12.5px;line-height:1.55;margin-bottom:10px}
+.svc-link{color:var(--o);font-size:12px;font-weight:700}
+.svc-detail{background:#fff8f7;border-radius:3px;padding:8px 10px;margin-top:8px;border:1px solid #ffe8e4}
+.svc-detail p{color:#888;font-size:11.5px;margin:0}
+.svc-detail strong{color:var(--od)}
+.svc-full{grid-column:span 3}
+
+/* EQUIPO */
+.team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+.team-card{text-align:center}
+.team-av{width:68px;height:68px;border-radius:50%;object-fit:cover;margin:0 auto 8px;display:block;border:2px solid var(--bd)}
+.team-av-fb{width:68px;height:68px;border-radius:50%;background:var(--o);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;color:#fff;font-size:20px;font-weight:800}
+.team-dir-wrap{border:2px solid var(--o);border-radius:50%;padding:3px;width:74px;height:74px;margin:0 auto 8px;display:flex;align-items:center;justify-content:center}
+.team-card h5{color:var(--dk);font-size:12px;font-weight:700;margin-bottom:2px}
+.team-card p{color:#888;font-size:11px}
+
+/* ACOPIOS */
+.acopio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:16px}
+.acopio-card{background:var(--w);border:1px solid var(--bd);border-radius:6px;padding:18px 20px}
+.acopio-card h4{color:var(--dk);font-size:14px;font-weight:700;margin-bottom:5px}
+.acopio-card p{color:#666;font-size:12.5px;line-height:1.5}
+.acopio-card .cap{color:var(--o);font-weight:800;font-size:16px;margin-top:8px}
+.total-box{background:var(--gy);border-radius:6px;padding:18px 22px;display:flex;align-items:center;gap:20px;border:1px solid var(--bd)}
+.total-n{font-size:30px;font-weight:800;color:var(--o)}
+.total-box p{color:#555;font-size:13.5px;line-height:1.6}
+
+/* RSE */
+.rse-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.rse-card{background:var(--w);border:1px solid var(--bd);border-radius:6px;padding:18px}
+.rse-card h5{color:var(--dk);font-size:13px;font-weight:700;margin-bottom:5px}
+.rse-card p{color:#777;font-size:12px;line-height:1.5}
+
+/* CLIENTES & MARCAS */
+.clientes-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:20px}
+.cliente{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:4px;padding:14px 30px;color:rgba(255,255,255,.75);font-size:14px;font-weight:700;letter-spacing:.5px}
+.marcas-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:12px}
+.marca{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:4px;padding:10px;text-align:center;color:rgba(255,255,255,.55);font-size:12px;font-weight:700}
+.iso-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.iso{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:3px;padding:6px 13px;color:rgba(255,255,255,.5);font-size:10.5px;font-weight:700;letter-spacing:.5px}
+
+/* FOOTER */
+.footer{background:#111;padding:40px 2.5rem 22px}
+.footer-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:36px;margin-bottom:30px}
+.footer h5{color:#fff;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:13px}
+.footer p,.footer-link{color:rgba(255,255,255,.4);font-size:12.5px;line-height:2;display:block}
+.footer-link:hover{color:var(--ol)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:18px;display:flex;justify-content:space-between;align-items:center}
+.footer-bottom p{color:rgba(255,255,255,.22);font-size:12px}
+.socials{display:flex;gap:16px}
+.socials a{color:rgba(255,255,255,.3);font-size:18px;transition:color .15s}
+.socials a:hover{color:var(--o)}
+
+@media(max-width:768px){
+  .hero h1{font-size:26px}
+  .hero-badge{display:none}
+  .stats{grid-template-columns:repeat(3,1fr)}
+  .stat:nth-child(4),.stat:nth-child(5){display:none}
+  .nosotros-grid,.sust-grid,.svc-grid,.team-grid,.acopio-grid,.rse-grid,.footer-grid{grid-template-columns:1fr}
+  .svc-full{grid-column:span 1}
+  .marcas-grid{grid-template-columns:repeat(4,1fr)}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">
+    <img src="https://fraylog.com/wp-content/uploads/2021/08/Recurso-13.png" alt="Fraylog" onerror="this.style.display='none'">
+    <span>FRAYLOG</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#inicio" class="active">Inicio</a></li>
+    <li><a href="#nosotros">Institucional</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#sostenibilidad">Sostenibilidad</a></li>
+    <li><a href="#equipo">Equipo</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="https://forms.office.com/r/pVkhYUePfG" target="_blank"><button class="nav-cta">Trabajá con nosotros</button></a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <span class="hero-tag">Logística forestal integral · Uruguay</span>
+  <h1>Movemos Uruguay.<br><span>Desde el monte</span><br>hasta la planta.</h1>
+  <p class="hero-sub">Más de 15 años conectando los bosques uruguayos con las plantas de celulosa. Líderes en logística forestal sostenible — incluyendo la primera flota de hidrógeno verde de Sudamérica.</p>
+  <div class="hero-btns">
+    <a href="#servicios" class="btn-o">Nuestros servicios</a>
+    <a href="https://www.youtube.com/watch?v=_vRTJXAaSII" target="_blank" class="btn-w">Ver video institucional</a>
+  </div>
+  <div class="hero-badge">
+    <strong>Proyecto Kahirós · 2026</strong>
+    <p>Primera flota de camiones de hidrógeno verde en Sudamérica. Financiado por Santander + IFC (Banco Mundial).</p>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-n">+15</div><div class="stat-l">años de experiencia</div></div>
+  <div class="stat"><div class="stat-n">+100</div><div class="stat-l">unidades en flota</div></div>
+  <div class="stat"><div class="stat-n">~100</div><div class="stat-l">viajes diarios</div></div>
+  <div class="stat"><div class="stat-n">400k m³</div><div class="stat-l">capacidad de acopio</div></div>
+  <div class="stat"><div class="stat-n">40%</div><div class="stat-l">energía renovable propia</div></div>
+</div>
+
+<!-- NOSOTROS -->
+<section class="sec" id="nosotros">
+  <div class="nosotros-grid">
+    <div class="nosotros-text">
+      <div class="tag">Institucional</div>
+      <h2 class="sec-h">Quiénes somos</h2>
+      <p>Fraylog S.A. fue fundada en 2007 como empresa de servicios logísticos y administrativos. Desde sus inicios se especializó en la actividad forestal, ofreciendo a sus clientes todos los servicios necesarios para que puedan concentrarse en sus competencias centrales.</p>
+      <p>Al día de hoy somos un grupo de empresas especializadas — Kelgin, Biesar, Enfay, Lubeline, Ñendy, TRF y Motus — que cubre de forma integral los diferentes eslabones de la cadena logística forestal, con bases en Fray Bentos, Centenario y oficinas en Montevideo.</p>
+      <p>Nuestro equipo gerencial es el elemento integrador del grupo, desarrollando soluciones en el marco de la gestión integral con foco en calidad, seguridad y sostenibilidad.</p>
+    </div>
+    <div>
+      <div class="tag" style="margin-bottom:12px">Nuestros valores</div>
+      <div class="values-grid">
+        <div class="val-card"><h5>Seguridad</h5><p>Conductas ejemplificantes y formación constante para colaboradores y proveedores.</p></div>
+        <div class="val-card"><h5>Honestidad</h5><p>Rectitud y veracidad en todos los actos dentro del marco de la ley.</p></div>
+        <div class="val-card"><h5>Perseverancia</h5><p>Esfuerzo continuo para alcanzar planes, objetivos y metas del equipo.</p></div>
+        <div class="val-card"><h5>Proactividad</h5><p>Desarrollar soluciones y hacer que las cosas sucedan con sentido de urgencia.</p></div>
+        <div class="val-card" style="grid-column:span 2"><h5>Compromiso</h5><p>Eficiencia con el tiempo y los recursos — materiales, humanos y económicos. Hacernos cargo de los resultados siempre.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SOSTENIBILIDAD -->
+<section class="sec gray" id="sostenibilidad">
+  <div class="tag">Sostenibilidad</div>
+  <h2 class="sec-h">Lideramos la transición energética en logística forestal</h2>
+  <p class="sec-p">Fuimos la primera empresa de transporte pesado eléctrico forestal en Uruguay. Ahora lanzamos la primera flota de hidrógeno verde de Sudamérica.</p>
+
+  <div class="news-banner" style="margin-bottom:16px">
+    <span class="nb">Nuevo · 2026</span>
+    <p><strong>Proyecto Kahirós:</strong> junto a Ventus y Fidocar, desplegamos 8 camiones Hyundai XCIENT a hidrógeno — primera flota en Sudamérica. Planta solar de 4.8 MW y producción de 77 t de hidrógeno verde/año. Financiado con USD 20M por Santander + IFC (Banco Mundial).</p>
+    <a href="https://kahiros.com.uy/" target="_blank">Leer más →</a>
+  </div>
+
+  <div class="news-banner light" style="margin-bottom:28px">
+    <span class="nb" style="background:#666">2024</span>
+    <p><strong>Primer camión eléctrico forestal en Uruguay:</strong> incorporamos una unidad BYD de 35.000 kg de capacidad en alianza con BYD y UPM. Reducción estimada de 275 toneladas de CO₂ por año.</p>
+    <a href="#">Ver nota →</a>
+  </div>
+
+  <div class="sust-grid">
+    <div class="sust-card">
+      <div class="ico">⚡</div>
+      <h4>Movilidad eléctrica</h4>
+      <p>Primer camión eléctrico pesado para uso forestal en Uruguay, en operación desde 2024 junto a BYD y UPM.</p>
+      <span class="pill">En operación</span>
+    </div>
+    <div class="sust-card">
+      <div class="ico">☀️</div>
+      <h4>Energía solar propia</h4>
+      <p>Plantas fotovoltaicas en Enfay, Fraylog y Lubeline. Generamos el 40% de nuestra energía de forma sustentable.</p>
+      <span class="pill">Activo</span>
+    </div>
+    <div class="sust-card">
+      <div class="ico">🔬</div>
+      <h4>Hidrógeno verde · Kahirós</h4>
+      <p>8 camiones Hyundai XCIENT + planta electrolizadora 2 MW + parque solar 4.8 MW. Inicio: noviembre 2026.</p>
+      <span class="pill yellow">En desarrollo</span>
+    </div>
+    <div class="sust-card">
+      <div class="ico">📊</div>
+      <h4>Medición CO₂ en tiempo real</h4>
+      <p>Automatizamos la medición de emisiones de carbono para todos nuestros clientes. Disponible desde 2025.</p>
+      <span class="pill gray">2025</span>
+    </div>
+    <div class="sust-card">
+      <div class="ico">🎯</div>
+      <h4>Meta 2030</h4>
+      <p>15% de la flota operando con combustibles alternativos. Comprometidos con la descarbonización total de la logística forestal.</p>
+      <span class="pill green">Compromiso</span>
+    </div>
+    <div class="sust-card">
+      <div class="ico">🌿</div>
+      <h4>ISO 14001 · Medio ambiente</h4>
+      <p>Certificados bajo norma ISO 14001:2015 desde octubre 2021. Estrategias de protección ambiental y prevención de contaminación.</p>
+      <span class="pill">Certificado</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="sec" id="servicios">
+  <div class="tag">Servicios</div>
+  <h2 class="sec-h">Cobertura integral de la cadena logística</h2>
+  <p class="sec-p">Desde la carga en el monte hasta la gestión administrativa, cubrimos cada eslabón con seguridad y eficiencia.</p>
+  <div class="svc-grid">
+    <div class="svc-card">
+      <div class="svc-head"><i class="ti ti-truck"></i><h4>Transporte forestal</h4></div>
+      <div class="svc-body">
+        <p>Suministro de materia prima a plantas de celulosa desde los montes de forma segura y eficiente. Operado por Kelgin y Biesar desde la Terminal de Fray Bentos.</p>
+        <div class="svc-detail"><p><strong>+100 unidades</strong> · contratos largo plazo con UPM y Montes del Plata · +100 viajes/día</p></div>
+        <a href="https://fraylog.com/transporte-forestal/" target="_blank" class="svc-link">Ver más →</a>
+      </div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-head"><i class="ti ti-flask"></i><h4>Transporte de productos químicos</h4></div>
+      <div class="svc-body">
+        <p>Transporte de insumos químicos para la planta de celulosa de Montes del Plata en Conchillas, desde la planta Kemira en Fray Bentos.</p>
+        <div class="svc-detail"><p>Ruta dedicada <strong>Fray Bentos → Conchillas</strong></p></div>
+        <a href="https://fraylog.com/productos-quimicos/" target="_blank" class="svc-link">Ver más →</a>
+      </div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-head"><i class="ti ti-stack"></i><h4>Acopio de madera</h4></div>
+      <div class="svc-body">
+        <p>Acopios Yvyrá, Ñandubay, Yatay y Durazno. Disponibilidad de madera bajo cualquier condición climática para UPM y Montes del Plata.</p>
+        <div class="svc-detail"><p>Capacidad total: <strong>400.000 m³ sólidos</strong></p></div>
+        <a href="https://fraylog.com/acopio-de-madera/" target="_blank" class="svc-link">Ver más →</a>
+      </div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-head"><i class="ti ti-crane"></i><h4>Carga de madera</h4></div>
+      <div class="svc-body">
+        <p>Servicio móvil de grúas forestales para la carga de camiones desde las pilas de madera dispuestas a los lados del monte.</p>
+        <a href="https://fraylog.com/carga-madera/" target="_blank" class="svc-link">Ver más →</a>
+      </div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-head"><i class="ti ti-shield-check"></i><h4>Seguridad vial y laboral</h4></div>
+      <div class="svc-body">
+        <p>Entrenamiento continuo de operarios y personal. Certificados ISO 39001 e ISO 45001 desde noviembre de 2018. Cultura de prevención y cuidado.</p>
+        <div class="svc-detail"><p>Certificación desde <strong>noviembre 2018</strong></p></div>
+        <a href="https://fraylog.com/seguridad-vial-laboral/" target="_blank" class="svc-link">Ver más →</a>
+      </div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-head"><i class="ti ti-settings"></i><h4>Mantenimiento y Central de Compras</h4></div>
+      <div class="svc-body">
+        <p>Central Logística en Fray Bentos: reparación y mantenimiento de unidades forestales (gomería, herrería, mecánica). Central de compras con economías de escala.</p>
+        <a href="https://fraylog.com/mantenimiento-compras/" target="_blank" class="svc-link">Ver más →</a>
+      </div>
+    </div>
+    <div class="svc-card svc-full">
+      <div class="svc-head"><i class="ti ti-chart-bar"></i><h4>Gestión administrativa</h4></div>
+      <div class="svc-body">
+        <p>Desde las oficinas en Montevideo: liquidación de sueldos, informes contables, liquidación de impuestos, administración y finanzas, central de compras. El equipo gerencial actúa como integrador de todas las empresas del grupo.</p>
+        <a href="https://fraylog.com/gestion/" target="_blank" class="svc-link">Ver más →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EQUIPO -->
+<section class="sec gray" id="equipo">
+  <div class="tag">Equipo</div>
+  <h2 class="sec-h">Nuestro equipo gerencial</h2>
+  <p class="sec-p" style="margin-bottom:28px">El elemento integrador de las empresas del grupo. Soluciones de excelencia aplicadas en forma responsable.</p>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-dir-wrap"><div class="team-av-fb" style="margin:0;width:62px;height:62px;font-size:18px">JF</div></div>
+      <h5>Lic. Juan Pablo Fabini</h5><p>Director</p>
+    </div>
+    <div class="team-card">
+      <img class="team-av" src="https://fraylog.com/wp-content/uploads/2019/06/Carolina-Soler-200x200.png" alt="Carolina Soler" onerror="this.outerHTML='<div class=\'team-av-fb\'>CS</div>'">
+      <h5>Cra. Carolina Soler</h5><p>Gerente General</p>
+    </div>
+    <div class="team-card">
+      <img class="team-av" src="https://fraylog.com/wp-content/uploads/2019/06/Federico-Terra-200x200.png" alt="Federico Terra" onerror="this.outerHTML='<div class=\'team-av-fb\'>FT</div>'">
+      <h5>Lic. Federico Terra</h5><p>Gerente de Transporte</p>
+    </div>
+    <div class="team-card">
+      <img class="team-av" src="https://fraylog.com/wp-content/uploads/2019/06/Gonzalo-Rodriguez-200x200.png" alt="Gonzalo Rodríguez" onerror="this.outerHTML='<div class=\'team-av-fb\'>GR</div>'">
+      <h5>Sr. Gonzalo Rodríguez</h5><p>Gerente Cargas & Acopios</p>
+    </div>
+    <div class="team-card">
+      <img class="team-av" src="https://fraylog.com/wp-content/uploads/2021/09/Mauricio-Mendy-1-200x200.png" alt="Mauricio Mendy" onerror="this.outerHTML='<div class=\'team-av-fb\'>MM</div>'">
+      <h5>Tec. For. Mauricio Mendy</h5><p>Gerente de Acopio</p>
+    </div>
+    <div class="team-card">
+      <img class="team-av" src="https://fraylog.com/wp-content/uploads/2019/06/Martin-Muñoz-200x200.png" alt="Martín Muñoz" onerror="this.outerHTML='<div class=\'team-av-fb\'>MN</div>'">
+      <h5>Ing. Martín Muñoz</h5><p>Gerente SIG</p>
+    </div>
+    <div class="team-card">
+      <img class="team-av" src="https://fraylog.com/wp-content/uploads/2025/12/Gonzalo-Irrazabal-web-200x200.png" alt="Gonzalo Irrazabal" onerror="this.outerHTML='<div class=\'team-av-fb\'>GI</div>'">
+      <h5>Gonzalo Irrazabal</h5><p>Director Negocios Sustentables</p>
+    </div>
+    <div class="team-card">
+      <img class="team-av" src="https://fraylog.com/wp-content/uploads/2021/05/Cecilia-Trapp-200x200.png" alt="Cecilia Trapp" onerror="this.outerHTML='<div class=\'team-av-fb\'>CT</div>'">
+      <h5>Cra. Cecilia Trapp</h5><p>Gerente Transformación Digital</p>
+    </div>
+    <div class="team-card">
+      <img class="team-av" src="https://fraylog.com/wp-content/uploads/2019/06/Nohely-Ramos-200x200.png" alt="Nohely Ramos" onerror="this.outerHTML='<div class=\'team-av-fb\'>NR</div>'">
+      <h5>T/A. Nohely Ramos</h5><p>Gerente Personas y Cultura</p>
+    </div>
+    <div class="team-card">
+      <img class="team-av" src="https://fraylog.com/wp-content/uploads/2019/06/Maria-Otegui-200x200.png" alt="María Otegui" onerror="this.outerHTML='<div class=\'team-av-fb\'>MO</div>'">
+      <h5>Lic. María Otegui</h5><p>Asesora</p>
+    </div>
+  </div>
+</section>
+
+<!-- ACOPIOS -->
+<section class="sec">
+  <div class="tag">Infraestructura</div>
+  <h2 class="sec-h">Bases logísticas y acopios</h2>
+  <p class="sec-p">Bases en Fray Bentos y Centenario, próximas a las principales plantas de celulosa y puertos fluviales del oeste de Uruguay.</p>
+  <div class="acopio-grid">
+    <div class="acopio-card">
+      <h4>Acopio Yvyrá — Canelones</h4>
+      <p>Ruta 11 Km 104.100. Gestión y recepción de madera para Montes del Plata (MDP).</p>
+      <div class="cap">100.000 m³</div>
+    </div>
+    <div class="acopio-card">
+      <h4>Acopio Durazno</h4>
+      <p>Ruta 14 Km 172.200. Balanza pública, carga y descarga de rollos de Eucaliptus para UPM y MDP.</p>
+      <div class="cap">100.000 m³</div>
+    </div>
+    <div class="acopio-card">
+      <h4>Acopio Ñandubay — Litoral</h4>
+      <p>Acopio intermedio de madera en el litoral del país, gestionado para Montes del Plata.</p>
+      <div class="cap">Acopio intermedio</div>
+    </div>
+    <div class="acopio-card">
+      <h4>Acopio Yatay — UPM</h4>
+      <p>Gestión de acopio intermedio para UPM en el litoral uruguayo.</p>
+      <div class="cap">Acopio intermedio</div>
+    </div>
+  </div>
+  <div class="total-box">
+    <div class="total-n">400.000 m³</div>
+    <p>Capacidad total de almacenaje de los acopios gestionados por el grupo, disponible bajo cualquier condición climática.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- RSE -->
+<section class="sec gray">
+  <div class="tag">Responsabilidad social</div>
+  <h2 class="sec-h">Compromiso con la comunidad</h2>
+  <p class="sec-p">Campañas activas de RSE en seguridad vial, educación y comunidades rurales vinculadas a la actividad forestal.</p>
+  <div class="rse-grid">
+    <div class="rse-card"><h5>Dale Paso</h5><p>Campaña de concientización vial para la convivencia entre camiones forestales y usuarios de la ruta.</p></div>
+    <div class="rse-card"><h5>Haciendo Camino</h5><p>Trabajo con comunidades rurales del interior del país vinculadas a la actividad forestal.</p></div>
+    <div class="rse-card"><h5>Sembrando Lazos</h5><p>Iniciativas de integración social y apoyo a familias en las zonas de operación de la empresa.</p></div>
+    <div class="rse-card"><h5>Volvé a Casa</h5><p>Campaña de seguridad vial enfocada en el bienestar de los conductores y sus familias.</p></div>
+  </div>
+</section>
+
+<!-- CLIENTES + MARCAS -->
+<section class="sec dark">
+  <div class="tag" style="color:var(--ol)">Clientes</div>
+  <h2 class="sec-h w">Trabajamos con los líderes del sector</h2>
+  <div class="clientes-row">
+    <div class="cliente">UPM</div>
+    <div class="cliente">Montes del Plata</div>
+    <div class="cliente">Kemira</div>
+  </div>
+  <div style="margin-top:40px">
+    <div class="tag" style="color:var(--ol)">Nuestras marcas</div>
+    <div class="marcas-grid">
+      <div class="marca">Kelgin</div>
+      <div class="marca">Ñendy</div>
+      <div class="marca">Enfay</div>
+      <div class="marca">Biesar</div>
+      <div class="marca">TRF</div>
+      <div class="marca">Motus</div>
+      <div class="marca">Lubeline</div>
+    </div>
+  </div>
+  <div style="margin-top:36px">
+    <div class="tag" style="color:var(--ol)">Certificaciones</div>
+    <div class="iso-row">
+      <span class="iso">ISO 9001:2015</span>
+      <span class="iso">ISO 14001:2015</span>
+      <span class="iso">ISO 39001:2012</span>
+      <span class="iso">ISO 45001:2018</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="contacto">
+  <div class="footer-grid">
+    <div>
+      <h5>Fraylog</h5>
+      <p>Grupo de empresas especializado en logística forestal integral. Más de 15 años moviendo madera en Uruguay. Fundado en 2007.</p>
+    </div>
+    <div>
+      <h5>Servicios</h5>
+      <a href="https://fraylog.com/transporte-forestal/" class="footer-link">Transporte forestal</a>
+      <a href="https://fraylog.com/productos-quimicos/" class="footer-link">Transporte químicos</a>
+      <a href="https://fraylog.com/acopio-de-madera/" class="footer-link">Acopio de madera</a>
+      <a href="https://fraylog.com/carga-madera/" class="footer-link">Carga de madera</a>
+      <a href="https://fraylog.com/seguridad-vial-laboral/" class="footer-link">Seguridad vial</a>
+      <a href="https://fraylog.com/mantenimiento-compras/" class="footer-link">Mantenimiento</a>
+    </div>
+    <div>
+      <h5>Empresa</h5>
+      <a href="#nosotros" class="footer-link">Institucional</a>
+      <a href="#sostenibilidad" class="footer-link">Sostenibilidad</a>
+      <a href="#equipo" class="footer-link">Equipo</a>
+      <a href="#" class="footer-link">Responsabilidad social</a>
+      <a href="https://forms.office.com/r/pVkhYUePfG" class="footer-link">Trabajá con nosotros</a>
+    </div>
+    <div>
+      <h5>Contacto</h5>
+      <p>Gabriel Otero 6337<br>Montevideo, Uruguay</p>
+      <a href="tel:+59826061032" class="footer-link">2606 1032</a>
+      <a href="mailto:info@fraylog.com.uy" class="footer-link">info@fraylog.com.uy</a>
+      <p style="margin-top:10px">Bases operativas:<br>Fray Bentos · Centenario</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Fraylog Terminal Logística · Todos los derechos reservados</p>
+    <div class="socials">
+      <a href="https://uy.linkedin.com/company/fraylog" target="_blank"><i class="ti ti-brand-linkedin"></i></a>
+      <a href="https://www.instagram.com/fraylog.uy/" target="_blank"><i class="ti ti-brand-instagram"></i></a>
+      <a href="https://www.youtube.com/channel/UC6qZSOjNJjTylZslmhwFQhQ" target="_blank"><i class="ti ti-brand-youtube"></i></a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
