@@ -133,12 +133,16 @@ html{scroll-behavior:smooth}
 .rse-card p{color:#777;font-size:12px;line-height:1.5}
 
 /* CLIENTES & MARCAS */
-.marcas-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:14px}
-.marca-card{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:4px;padding:12px 8px;display:flex;align-items:center;justify-content:center;min-height:66px}
+.marcas-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+.marca-card{background:var(--w);border:1px solid var(--bd);border-radius:4px;padding:14px 10px;display:flex;align-items:center;justify-content:center;min-height:70px;transition:border-color .2s,box-shadow .2s}
+.marca-card:hover{border-color:var(--ol);box-shadow:0 2px 10px rgba(250,70,22,.1)}
 .marca-card img{max-height:42px;max-width:100%;object-fit:contain}
-.marca-card span{color:#fff;font-size:12px;font-weight:700;text-align:center}
-.clientes-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:20px}
-.cliente-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:4px;padding:14px 30px;color:rgba(255,255,255,.9);font-size:14px;font-weight:700;letter-spacing:.5px}
+.marca-card span{color:var(--dk);font-size:12.5px;font-weight:700;text-align:center}
+.clientes-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.cliente-card{background:var(--w);border:1px solid var(--bd);border-radius:4px;padding:14px 28px;color:var(--sec);font-size:14px;font-weight:700;letter-spacing:.5px;transition:border-color .2s}
+.cliente-card:hover{border-color:var(--o);color:var(--dk)}
+.iso-row-light{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.iso-light{background:var(--gy);border:1px solid var(--bd);border-radius:3px;padding:6px 13px;color:var(--sec);font-size:10.5px;font-weight:700;letter-spacing:.5px}
 .iso-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
 .iso{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:3px;padding:6px 13px;color:rgba(255,255,255,.85);font-size:10.5px;font-weight:700;letter-spacing:.5px}
 
@@ -423,35 +427,39 @@ html{scroll-behavior:smooth}
 </section>
 
 <!-- MARCAS + CLIENTES + CERTS -->
-<section class="sec dark">
-  <div class="tag" style="color:rgba(255,255,255,.7)">Clientes</div>
-  <h2 class="sec-h w">Trabajamos con los líderes del sector</h2>
+<section class="sec">
+  <div class="tag">Clientes</div>
+  <h2 class="sec-h">Trabajamos con los líderes del sector</h2>
   <div class="clientes-row">
     <div class="cliente-card">UPM</div>
     <div class="cliente-card">Montes del Plata</div>
     <div class="cliente-card">Kemira</div>
   </div>
   <div style="margin-top:40px">
-    <div class="tag" style="color:rgba(255,255,255,.7)">Empresas del grupo</div>
+    <div class="tag">Empresas del grupo</div>
     <div class="marcas-grid">
       <div class="marca-card"><img src="img/logo-kelgin.jpg" alt="Kelgin"></div>
       <div class="marca-card"><img src="img/logo-biesar.jpg" alt="Biesar"></div>
       <div class="marca-card"><span>Enfay</span></div>
       <div class="marca-card"><span>Lubeline</span></div>
-      <div class="marca-card"><img src="img/logo-nendy.jpeg" alt="Ñendy"></div>
+      <div class="marca-card">
+        <div style="text-align:center">
+          <img src="img/logo-nendy.jpeg" alt="Ñendy" style="max-height:38px;max-width:100%;object-fit:contain;display:block;margin:0 auto 4px">
+          <span style="font-size:10px;color:var(--sec);font-weight:600">· ANCAP</span>
+        </div>
+      </div>
       <div class="marca-card"><span>TRF</span></div>
       <div class="marca-card"><img src="img/logo-motus.jpg" alt="Motus"></div>
       <div class="marca-card"><img src="img/logo-fraylog.png" alt="Fraylog"></div>
-      <div class="marca-card"><span>Ñendy ANCAP</span></div>
     </div>
   </div>
   <div style="margin-top:36px">
-    <div class="tag" style="color:rgba(255,255,255,.7)">Certificaciones</div>
-    <div class="iso-row">
-      <span class="iso">ISO 9001:2015</span>
-      <span class="iso">ISO 14001:2015</span>
-      <span class="iso">ISO 39001:2012</span>
-      <span class="iso">ISO 45001:2018</span>
+    <div class="tag">Certificaciones</div>
+    <div class="iso-row-light">
+      <span class="iso-light">ISO 9001:2015</span>
+      <span class="iso-light">ISO 14001:2015</span>
+      <span class="iso-light">ISO 39001:2012</span>
+      <span class="iso-light">ISO 45001:2018</span>
     </div>
   </div>
 </section>
