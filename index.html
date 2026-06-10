@@ -142,7 +142,8 @@ html{scroll-behavior:smooth}
 .cliente-card{background:var(--w);border:1px solid var(--bd);border-radius:4px;padding:14px 28px;color:var(--sec);font-size:14px;font-weight:700;letter-spacing:.5px;transition:border-color .2s}
 .cliente-card:hover{border-color:var(--o);color:var(--dk)}
 .iso-row-light{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.iso-light{background:var(--gy);border:1px solid var(--bd);border-radius:3px;padding:6px 13px;color:var(--sec);font-size:10.5px;font-weight:700;letter-spacing:.5px}
+.iso-light{background:var(--gy);border:1px solid var(--bd);border-radius:3px;padding:6px 13px;color:var(--sec);font-size:10.5px;font-weight:700;letter-spacing:.5px;display:inline-flex;align-items:center;gap:4px;transition:border-color .15s,color .15s}
+.iso-light:hover{border-color:var(--o);color:var(--o)}
 .iso-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
 .iso{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:3px;padding:6px 13px;color:rgba(255,255,255,.85);font-size:10.5px;font-weight:700;letter-spacing:.5px}
 
@@ -456,10 +457,10 @@ html{scroll-behavior:smooth}
   <div style="margin-top:36px">
     <div class="tag">Certificaciones</div>
     <div class="iso-row-light">
-      <span class="iso-light">ISO 9001:2015</span>
-      <span class="iso-light">ISO 14001:2015</span>
-      <span class="iso-light">ISO 39001:2012</span>
-      <span class="iso-light">ISO 45001:2018</span>
+      <a class="iso-light" href="https://fraylog.com/wp-content/uploads/2022/07/FRAYLOG-LSQA-ISO-9001-esp-sin-historico-09-2018-IAF-2593_01-27_10_2021.pdf" target="_blank" rel="noopener">ISO 9001:2015 <i class="ti ti-external-link" style="font-size:10px"></i></a>
+      <a class="iso-light" href="https://fraylog.com/wp-content/uploads/2022/07/FRAYLOG-LSQA-ISO-14001-esp-sin-historico-02-2020-BG-SGA-364_01-27_10_2021.pdf" target="_blank" rel="noopener">ISO 14001:2015 <i class="ti ti-external-link" style="font-size:10px"></i></a>
+      <a class="iso-light" href="https://fraylog.com/wp-content/uploads/2022/07/FRAYLOG-LSQA-ISO-39001-esp-sin-historico-09-2019-BG-SGSV-02-27_10_2021.pdf" target="_blank" rel="noopener">ISO 39001:2012 <i class="ti ti-external-link" style="font-size:10px"></i></a>
+      <a class="iso-light" href="https://fraylog.com/wp-content/uploads/2022/07/FRAYLOG-LSQA-ISO-45001-esp-sin-historico-SSS-0175_01-27_10_2021.pdf" target="_blank" rel="noopener">ISO 45001:2018 <i class="ti ti-external-link" style="font-size:10px"></i></a>
     </div>
   </div>
 </section>
