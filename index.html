@@ -133,11 +133,11 @@ html{scroll-behavior:smooth}
 .rse-card p{color:#777;font-size:12px;line-height:1.5}
 
 /* CLIENTES & MARCAS */
-.grupo-wrap{margin-top:20px;border:1px solid var(--bd);border-radius:8px;overflow:hidden}
-.grupo-top{background:var(--w);padding:28px;display:flex;align-items:center;justify-content:center;border-bottom:2px solid var(--o)}
-.grupo-top img{height:64px;object-fit:contain}
-.grupo-strip{background:var(--gy);padding:24px 32px;display:flex;align-items:center;justify-content:center}
-.grupo-strip img{width:100%;max-width:860px;height:auto}
+.marcas-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+.marca-card{background:var(--w);border:1px solid var(--bd);border-radius:4px;padding:14px 10px;display:flex;align-items:center;justify-content:center;min-height:70px;transition:border-color .2s,box-shadow .2s}
+.marca-card:hover{border-color:var(--ol);box-shadow:0 2px 10px rgba(250,70,22,.1)}
+.marca-card img{max-height:42px;max-width:100%;object-fit:contain}
+.marca-card span{color:var(--dk);font-size:12.5px;font-weight:700;text-align:center}
 .clientes-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
 .cliente-card{background:var(--w);border:1px solid var(--bd);border-radius:4px;padding:14px 28px;color:var(--sec);font-size:14px;font-weight:700;letter-spacing:.5px;transition:border-color .2s,box-shadow .2s;display:flex;align-items:center;justify-content:center;min-height:66px}
 .cliente-card:hover{border-color:var(--o);box-shadow:0 2px 10px rgba(250,70,22,.1)}
@@ -215,7 +215,7 @@ html{scroll-behavior:smooth}
 <div class="stats">
   <div class="stat"><div class="stat-n">+15</div><div class="stat-l">años de experiencia</div></div>
   <div class="stat"><div class="stat-n">+100</div><div class="stat-l">unidades en flota</div></div>
-  <div class="stat"><div class="stat-n">~100</div><div class="stat-l">viajes diarios</div></div>
+  <div class="stat"><div class="stat-n">50k</div><div class="stat-l">viajes por año</div></div>
   <div class="stat"><div class="stat-n">+3.5M km</div><div class="stat-l">recorridos por año</div></div>
   <div class="stat"><div class="stat-n">40%</div><div class="stat-l">energía renovable propia</div></div>
 </div>
@@ -307,7 +307,7 @@ html{scroll-behavior:smooth}
       <div class="svc-head"><i class="ti ti-stack"></i><h4>Acopio de madera</h4></div>
       <div class="svc-body">
         <p>Acopios Yvyrá, Ñandubay, Yatay y Durazno. Disponibilidad de madera bajo cualquier condición climática para UPM y Montes del Plata.</p>
-        <div class="svc-detail"><p>Capacidad total: <strong>400.000 m³ sólidos</strong></p></div>
+        <div class="svc-detail"><p>Capacidad total: <strong>490.000 m³ sólidos</strong></p></div>
         <a href="acopio-de-madera.html" class="svc-link">Ver más →</a>
       </div>
     </div>
@@ -409,7 +409,7 @@ html{scroll-behavior:smooth}
     </div>
   </div>
   <div class="total-box">
-    <div class="total-n">400.000 m³</div>
+    <div class="total-n">490.000 m³</div>
     <p>Capacidad total de almacenaje de los acopios gestionados por el grupo, disponible bajo cualquier condición climática.</p>
   </div>
 </section>
@@ -440,13 +440,21 @@ html{scroll-behavior:smooth}
   </div>
   <div style="margin-top:40px">
     <div class="tag">Empresas del grupo</div>
-    <div class="grupo-wrap">
-      <div class="grupo-top">
-        <img src="img/logo-fraylog.png" alt="Fraylog">
+    <div class="marcas-grid">
+      <div class="marca-card"><img src="img/logo-kelgin.jpg" alt="Kelgin"></div>
+      <div class="marca-card"><img src="img/logo-biesar.jpg" alt="Biesar"></div>
+      <div class="marca-card"><img src="img/logo-enfay.jpg" alt="Enfay"></div>
+      <div class="marca-card"><span>Lubeline</span></div>
+      <div class="marca-card">
+        <div style="text-align:center">
+          <img src="img/logo-nendy.jpeg" alt="Ñendy" style="max-height:38px;max-width:100%;object-fit:contain;display:block;margin:0 auto 4px">
+          <span style="font-size:10px;color:var(--sec);font-weight:600">· ANCAP</span>
+        </div>
       </div>
-      <div class="grupo-strip">
-        <img src="img/empresas-del-grupo.png" alt="Kelgin, Biesar, Ñendy, Enfay, Acopio Durazno, TRF, Motus">
-      </div>
+      <div class="marca-card"><span>TRF</span></div>
+      <div class="marca-card"><img src="img/logo-motus.jpg" alt="Motus"></div>
+      <div class="marca-card"><img src="img/logo-acopio-durazno.jpg" alt="Acopio Durazno"></div>
+      <div class="marca-card" style="grid-column:1/-1;min-height:90px;border-color:var(--o);border-width:2px"><img src="img/logo-fraylog.png" alt="Fraylog" style="max-height:64px"></div>
     </div>
   </div>
   <div style="margin-top:36px">
