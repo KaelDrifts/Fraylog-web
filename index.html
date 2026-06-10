@@ -166,7 +166,8 @@ html{scroll-behavior:smooth}
 @keyframes introTagIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 @keyframes introOut{0%,65%{opacity:1;pointer-events:all}100%{opacity:0;pointer-events:none;visibility:hidden}}
 .intro-overlay{position:fixed;inset:0;background:#fff;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;animation:introOut 3s ease forwards}
-.intro-overlay img{height:80px;opacity:0;animation:introLogoIn .7s ease .1s forwards}
+.intro-logo-crop{overflow:hidden;height:62px;opacity:0;animation:introLogoIn .7s ease .1s forwards}
+.intro-logo-crop img{height:110px;display:block}
 .intro-tagline{opacity:0;animation:introTagIn .55s ease .95s forwards;font-size:20px;font-weight:800;color:var(--o);letter-spacing:.5px}
 
 @media(max-width:768px){
@@ -203,15 +204,18 @@ html{scroll-behavior:smooth}
 
 <!-- INTRO SPLASH -->
 <div class="intro-overlay" aria-hidden="true">
-  <img src="img/isotipo-fraylog.jpeg" alt="Fraylog" style="border-radius:6px">
+  <div class="intro-logo-crop">
+    <img src="img/logo-fraylog.png" alt="Fraylog">
+  </div>
   <div class="intro-tagline">Pasión x Soluciones</div>
 </div>
 
 <!-- HERO -->
 <section class="hero" id="inicio">
   <div class="hero-content">
+    <img src="img/isotipo-fraylog.jpeg" alt="" style="height:52px;border-radius:5px;margin-bottom:16px;display:block">
     <span class="hero-tag">Logística forestal integral · Uruguay</span>
-    <h1><img src="img/isotipo-fraylog.jpeg" alt="" style="height:48px;vertical-align:middle;margin-right:14px;border-radius:5px">Pasión<br><span>x Soluciones.</span></h1>
+    <h1>Pasión<br><span>x Soluciones.</span></h1>
     <p class="hero-sub">Más de 15 años conectando los bosques uruguayos con las plantas de celulosa. Líderes en logística forestal sostenible — incluyendo la primera flota de hidrógeno verde de Sudamérica.</p>
     <div class="hero-btns">
       <a href="#servicios" class="btn-o">Nuestros servicios</a>
