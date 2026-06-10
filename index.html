@@ -133,12 +133,17 @@ html{scroll-behavior:smooth}
 .rse-card p{color:#777;font-size:12px;line-height:1.5}
 
 /* CLIENTES & MARCAS */
-.clientes-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:20px}
-.cliente{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:4px;padding:14px 30px;color:rgba(255,255,255,.75);font-size:14px;font-weight:700;letter-spacing:.5px}
-.marcas-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:12px}
-.marca{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:4px;padding:10px;text-align:center;color:rgba(255,255,255,.55);font-size:12px;font-weight:700}
+.marcas-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px}
+.marca-card{background:var(--w);border:1px solid var(--bd);border-radius:6px;padding:20px 16px;display:flex;align-items:center;justify-content:center;min-height:90px;transition:border-color .2s,box-shadow .2s}
+.marca-card:hover{border-color:var(--ol);box-shadow:0 2px 12px rgba(250,70,22,.08)}
+.marca-card img{max-height:52px;max-width:100%;object-fit:contain;filter:grayscale(30%);transition:filter .2s}
+.marca-card:hover img{filter:none}
+.marca-card span{color:var(--dk);font-size:13px;font-weight:800;text-align:center;letter-spacing:.3px}
+.clientes-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px;align-items:center}
+.cliente-card{background:var(--w);border:1px solid var(--bd);border-radius:6px;padding:18px 36px;color:var(--sec);font-size:16px;font-weight:800;letter-spacing:.5px;transition:border-color .2s}
+.cliente-card:hover{border-color:var(--o);color:var(--dk)}
 .iso-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.iso{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:3px;padding:6px 13px;color:rgba(255,255,255,.5);font-size:10.5px;font-weight:700;letter-spacing:.5px}
+.iso{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:3px;padding:6px 13px;color:rgba(255,255,255,.85);font-size:10.5px;font-weight:700;letter-spacing:.5px}
 
 /* FOOTER */
 .footer{background:var(--o);padding:40px 2.5rem 22px}
@@ -160,7 +165,8 @@ html{scroll-behavior:smooth}
   .stat:nth-child(4),.stat:nth-child(5){display:none}
   .nosotros-grid,.sust-grid,.svc-grid,.team-grid,.acopio-grid,.rse-grid,.footer-grid{grid-template-columns:1fr}
   .svc-full{grid-column:span 1}
-  .marcas-grid{grid-template-columns:repeat(4,1fr)}
+  .marcas-grid{grid-template-columns:repeat(2,1fr)}
+  .clientes-row{flex-direction:column}
   .nav-links{display:none}
 }
 </style>
@@ -415,35 +421,43 @@ html{scroll-behavior:smooth}
   </div>
 </section>
 
-<!-- CLIENTES + MARCAS -->
-<section class="sec dark">
-  <div class="tag" style="color:var(--ol)">Clientes</div>
-  <h2 class="sec-h w">Trabajamos con los líderes del sector</h2>
+<!-- NUESTRAS MARCAS -->
+<section class="sec gray">
+  <div class="tag">Grupo Fraylog</div>
+  <h2 class="sec-h">Nuestras marcas</h2>
+  <p class="sec-p">Un grupo de empresas especializadas que trabajan de forma integrada en la cadena forestal y agroindustrial.</p>
+  <div class="marcas-grid">
+    <div class="marca-card"><img src="img/logo-kelgin.jpg" alt="Kelgin"></div>
+    <div class="marca-card"><span>Ñendy</span></div>
+    <div class="marca-card"><span>Enfay Logística</span></div>
+    <div class="marca-card"><img src="img/logo-biesar.jpg" alt="Biesar"></div>
+    <div class="marca-card"><span>TRF</span></div>
+    <div class="marca-card"><img src="img/logo-motus.jpg" alt="Motus"></div>
+    <div class="marca-card"><span>Acopio Durazno</span></div>
+  </div>
+</section>
+
+<!-- NUESTROS CLIENTES -->
+<section class="sec">
+  <div class="tag">Clientes</div>
+  <h2 class="sec-h">Trabajamos con los líderes del sector</h2>
+  <p class="sec-p">Empresas forestales de primer nivel confían en Fraylog para su logística integral.</p>
   <div class="clientes-row">
-    <div class="cliente">UPM</div>
-    <div class="cliente">Montes del Plata</div>
-    <div class="cliente">Kemira</div>
+    <div class="cliente-card">UPM</div>
+    <div class="cliente-card">Montes del Plata</div>
+    <div class="cliente-card">Kemira</div>
   </div>
-  <div style="margin-top:40px">
-    <div class="tag" style="color:var(--ol)">Nuestras marcas</div>
-    <div class="marcas-grid">
-      <div class="marca">Kelgin</div>
-      <div class="marca">Ñendy</div>
-      <div class="marca">Enfay</div>
-      <div class="marca">Biesar</div>
-      <div class="marca">TRF</div>
-      <div class="marca">Motus</div>
-      <div class="marca">Lubeline</div>
-    </div>
-  </div>
-  <div style="margin-top:36px">
-    <div class="tag" style="color:var(--ol)">Certificaciones</div>
-    <div class="iso-row">
-      <span class="iso">ISO 9001:2015</span>
-      <span class="iso">ISO 14001:2015</span>
-      <span class="iso">ISO 39001:2012</span>
-      <span class="iso">ISO 45001:2018</span>
-    </div>
+</section>
+
+<!-- CERTIFICACIONES -->
+<section class="sec dark">
+  <div class="tag" style="color:rgba(255,255,255,.6)">Calidad</div>
+  <h2 class="sec-h w">Certificaciones internacionales</h2>
+  <div class="iso-row">
+    <span class="iso">ISO 9001:2015</span>
+    <span class="iso">ISO 14001:2015</span>
+    <span class="iso">ISO 39001:2012</span>
+    <span class="iso">ISO 45001:2018</span>
   </div>
 </section>
 
