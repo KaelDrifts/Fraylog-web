@@ -17,7 +17,7 @@ html{scroll-behavior:smooth}
 /* NAV */
 .nav{background:var(--w);height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;position:sticky;top:0;z-index:100;border-bottom:2px solid var(--o)}
 .nav-logo{display:flex;align-items:center;gap:10px}
-.nav-logo img{height:32px;filter:none}
+.nav-logo img{height:46px;filter:none}
 .nav-logo span{color:var(--o);font-size:18px;font-weight:800;letter-spacing:1.5px}
 .nav-links{display:flex;gap:0;list-style:none}
 .nav-links li a{color:var(--sec);font-size:12.5px;font-weight:500;padding:0 14px;line-height:62px;display:block;transition:color .15s}
@@ -133,15 +133,12 @@ html{scroll-behavior:smooth}
 .rse-card p{color:#777;font-size:12px;line-height:1.5}
 
 /* CLIENTES & MARCAS */
-.marcas-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px}
-.marca-card{background:var(--w);border:1px solid var(--bd);border-radius:6px;padding:20px 16px;display:flex;align-items:center;justify-content:center;min-height:90px;transition:border-color .2s,box-shadow .2s}
-.marca-card:hover{border-color:var(--ol);box-shadow:0 2px 12px rgba(250,70,22,.08)}
-.marca-card img{max-height:52px;max-width:100%;object-fit:contain;filter:grayscale(30%);transition:filter .2s}
-.marca-card:hover img{filter:none}
-.marca-card span{color:var(--dk);font-size:13px;font-weight:800;text-align:center;letter-spacing:.3px}
-.clientes-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px;align-items:center}
-.cliente-card{background:var(--w);border:1px solid var(--bd);border-radius:6px;padding:18px 36px;color:var(--sec);font-size:16px;font-weight:800;letter-spacing:.5px;transition:border-color .2s}
-.cliente-card:hover{border-color:var(--o);color:var(--dk)}
+.marcas-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:14px}
+.marca-card{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:4px;padding:12px 8px;display:flex;align-items:center;justify-content:center;min-height:66px}
+.marca-card img{max-height:42px;max-width:100%;object-fit:contain}
+.marca-card span{color:#fff;font-size:12px;font-weight:700;text-align:center}
+.clientes-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:20px}
+.cliente-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:4px;padding:14px 30px;color:rgba(255,255,255,.9);font-size:14px;font-weight:700;letter-spacing:.5px}
 .iso-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
 .iso{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:3px;padding:6px 13px;color:rgba(255,255,255,.85);font-size:10.5px;font-weight:700;letter-spacing:.5px}
 
@@ -165,8 +162,8 @@ html{scroll-behavior:smooth}
   .stat:nth-child(4),.stat:nth-child(5){display:none}
   .nosotros-grid,.sust-grid,.svc-grid,.team-grid,.acopio-grid,.rse-grid,.footer-grid{grid-template-columns:1fr}
   .svc-full{grid-column:span 1}
-  .marcas-grid{grid-template-columns:repeat(2,1fr)}
-  .clientes-row{flex-direction:column}
+  .marcas-grid{grid-template-columns:repeat(3,1fr)}
+  .clientes-row{flex-wrap:wrap}
   .nav-links{display:none}
 }
 </style>
@@ -346,7 +343,7 @@ html{scroll-behavior:smooth}
   <div class="tag">Equipo</div>
   <h2 class="sec-h">Nuestro equipo gerencial</h2>
   <p class="sec-p" style="margin-bottom:28px">El elemento integrador de las empresas del grupo. Soluciones de excelencia aplicadas en forma responsable.</p>
-  <div class="team-grid" style="grid-template-columns:repeat(5,1fr)">
+  <div class="team-grid" style="grid-template-columns:repeat(6,1fr)">
     <div class="team-card">
       <div class="team-dir-wrap"><img class="team-av" src="https://fraylog.com/wp-content/uploads/2019/06/juan-pablo-200x200.png" alt="Juan Pablo Fabini" style="margin:0;width:62px;height:62px" onerror="this.outerHTML='<div class=\'team-av-fb\' style=\'margin:0;width:62px;height:62px;font-size:18px\'>JF</div>'"></div>
       <h5>Lic. Juan Pablo Fabini</h5><p>Director</p>
@@ -366,6 +363,10 @@ html{scroll-behavior:smooth}
     <div class="team-card">
       <img class="team-av" src="https://fraylog.com/wp-content/uploads/2019/06/Martin-Muñoz-200x200.png" alt="Martín Muñoz" onerror="this.outerHTML='<div class=\'team-av-fb\'>MN</div>'">
       <h5>Ing. Martín Muñoz</h5><p>Gerente SIG</p>
+    </div>
+    <div class="team-card">
+      <img class="team-av" src="https://fraylog.com/wp-content/uploads/2019/06/Nohely-Ramos-200x200.png" alt="Nohely Ramos" onerror="this.outerHTML='<div class=\'team-av-fb\'>NR</div>'">
+      <h5>T/A. Nohely Ramos</h5><p>Gerente P&C</p>
     </div>
   </div>
   <div style="margin-top:24px">
@@ -421,43 +422,37 @@ html{scroll-behavior:smooth}
   </div>
 </section>
 
-<!-- NUESTRAS MARCAS -->
-<section class="sec gray">
-  <div class="tag">Grupo Fraylog</div>
-  <h2 class="sec-h">Nuestras marcas</h2>
-  <p class="sec-p">Un grupo de empresas especializadas que trabajan de forma integrada en la cadena forestal y agroindustrial.</p>
-  <div class="marcas-grid">
-    <div class="marca-card"><img src="img/logo-kelgin.jpg" alt="Kelgin"></div>
-    <div class="marca-card"><span>Ñendy</span></div>
-    <div class="marca-card"><span>Enfay Logística</span></div>
-    <div class="marca-card"><img src="img/logo-biesar.jpg" alt="Biesar"></div>
-    <div class="marca-card"><span>TRF</span></div>
-    <div class="marca-card"><img src="img/logo-motus.jpg" alt="Motus"></div>
-    <div class="marca-card"><span>Acopio Durazno</span></div>
-  </div>
-</section>
-
-<!-- NUESTROS CLIENTES -->
-<section class="sec">
-  <div class="tag">Clientes</div>
-  <h2 class="sec-h">Trabajamos con los líderes del sector</h2>
-  <p class="sec-p">Empresas forestales de primer nivel confían en Fraylog para su logística integral.</p>
+<!-- MARCAS + CLIENTES + CERTS -->
+<section class="sec dark">
+  <div class="tag" style="color:rgba(255,255,255,.7)">Clientes</div>
+  <h2 class="sec-h w">Trabajamos con los líderes del sector</h2>
   <div class="clientes-row">
     <div class="cliente-card">UPM</div>
     <div class="cliente-card">Montes del Plata</div>
     <div class="cliente-card">Kemira</div>
   </div>
-</section>
-
-<!-- CERTIFICACIONES -->
-<section class="sec dark">
-  <div class="tag" style="color:rgba(255,255,255,.6)">Calidad</div>
-  <h2 class="sec-h w">Certificaciones internacionales</h2>
-  <div class="iso-row">
-    <span class="iso">ISO 9001:2015</span>
-    <span class="iso">ISO 14001:2015</span>
-    <span class="iso">ISO 39001:2012</span>
-    <span class="iso">ISO 45001:2018</span>
+  <div style="margin-top:40px">
+    <div class="tag" style="color:rgba(255,255,255,.7)">Empresas del grupo</div>
+    <div class="marcas-grid">
+      <div class="marca-card"><img src="img/logo-kelgin.jpg" alt="Kelgin"></div>
+      <div class="marca-card"><img src="img/logo-biesar.jpg" alt="Biesar"></div>
+      <div class="marca-card"><span>Enfay</span></div>
+      <div class="marca-card"><span>Lubeline</span></div>
+      <div class="marca-card"><span>Ñendy</span></div>
+      <div class="marca-card"><span>TRF</span></div>
+      <div class="marca-card"><img src="img/logo-motus.jpg" alt="Motus"></div>
+      <div class="marca-card"><img src="img/logo-fraylog.png" alt="Fraylog"></div>
+      <div class="marca-card"><span>Ñendy ANCAP</span></div>
+    </div>
+  </div>
+  <div style="margin-top:36px">
+    <div class="tag" style="color:rgba(255,255,255,.7)">Certificaciones</div>
+    <div class="iso-row">
+      <span class="iso">ISO 9001:2015</span>
+      <span class="iso">ISO 14001:2015</span>
+      <span class="iso">ISO 39001:2012</span>
+      <span class="iso">ISO 45001:2018</span>
+    </div>
   </div>
 </section>
 
