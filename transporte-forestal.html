@@ -57,7 +57,8 @@ html{scroll-behavior:smooth}
 .sp-iso-card{background:var(--gy);border:1px solid var(--bd);border-radius:6px;padding:16px 20px}
 .sp-iso-card h4{font-size:10.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#aaa;margin-bottom:12px}
 .sp-iso-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.sp-iso{font-size:10.5px;font-weight:700;color:#666;background:#fff;border:1px solid var(--bd);border-radius:2px;padding:5px 8px;text-align:center}
+.sp-iso{font-size:10.5px;font-weight:700;color:#666;background:#fff;border:1px solid var(--bd);border-radius:2px;padding:5px 8px;text-align:center;display:inline-flex;align-items:center;justify-content:center;gap:4px;transition:border-color .15s,color .15s}
+.sp-iso:hover{border-color:var(--o);color:var(--o)}
 .sp-sec{background:var(--gy);padding:40px 2.5rem;border-top:1px solid var(--bd)}
 .sp-sec h3{font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#aaa;margin-bottom:18px}
 .sp-related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
@@ -197,10 +198,10 @@ html{scroll-behavior:smooth}
       <div class="sp-iso-card">
         <h4>Certificaciones</h4>
         <div class="sp-iso-grid">
-          <div class="sp-iso">ISO 9001:2015</div>
-          <div class="sp-iso">ISO 14001:2015</div>
-          <div class="sp-iso">ISO 39001:2012</div>
-          <div class="sp-iso">ISO 45001:2018</div>
+          <a class="sp-iso" href="docs/certificado-iso-9001.pdf" target="_blank" rel="noopener">ISO 9001:2015 <i class="ti ti-external-link" style="font-size:9px"></i></a>
+          <a class="sp-iso" href="docs/certificado-iso-14001.pdf" target="_blank" rel="noopener">ISO 14001:2015 <i class="ti ti-external-link" style="font-size:9px"></i></a>
+          <a class="sp-iso" href="docs/certificado-iso-39001.pdf" target="_blank" rel="noopener">ISO 39001:2012 <i class="ti ti-external-link" style="font-size:9px"></i></a>
+          <a class="sp-iso" href="docs/certificado-iso-45001.pdf" target="_blank" rel="noopener">ISO 45001:2018 <i class="ti ti-external-link" style="font-size:9px"></i></a>
         </div>
       </div>
     </div>
