@@ -139,8 +139,10 @@ html{scroll-behavior:smooth}
 .marca-card img{max-height:42px;max-width:100%;object-fit:contain}
 .marca-card span{color:var(--dk);font-size:12.5px;font-weight:700;text-align:center}
 .clientes-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
-.cliente-card{background:var(--w);border:1px solid var(--bd);border-radius:4px;padding:14px 28px;color:var(--sec);font-size:14px;font-weight:700;letter-spacing:.5px;transition:border-color .2s}
-.cliente-card:hover{border-color:var(--o);color:var(--dk)}
+.cliente-card{background:var(--w);border:1px solid var(--bd);border-radius:4px;padding:14px 28px;color:var(--sec);font-size:14px;font-weight:700;letter-spacing:.5px;transition:border-color .2s,box-shadow .2s;display:flex;align-items:center;justify-content:center;min-height:66px}
+.cliente-card:hover{border-color:var(--o);box-shadow:0 2px 10px rgba(250,70,22,.1)}
+.cliente-card img{max-height:44px;max-width:160px;object-fit:contain;filter:grayscale(20%);transition:filter .2s}
+.cliente-card:hover img{filter:none}
 .iso-row-light{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
 .iso-light{background:var(--gy);border:1px solid var(--bd);border-radius:3px;padding:6px 13px;color:var(--sec);font-size:10.5px;font-weight:700;letter-spacing:.5px;display:inline-flex;align-items:center;gap:4px;transition:border-color .15s,color .15s}
 .iso-light:hover{border-color:var(--o);color:var(--o)}
@@ -432,16 +434,16 @@ html{scroll-behavior:smooth}
   <div class="tag">Clientes</div>
   <h2 class="sec-h">Trabajamos con los líderes del sector</h2>
   <div class="clientes-row">
-    <div class="cliente-card">UPM</div>
-    <div class="cliente-card">Montes del Plata</div>
-    <div class="cliente-card">Kemira</div>
+    <div class="cliente-card"><img src="img/logo-upm.png" alt="UPM"></div>
+    <div class="cliente-card"><img src="img/logo-montes-del-plata.png" alt="Montes del Plata"></div>
+    <div class="cliente-card"><img src="img/logo-kemira.png" alt="Kemira"></div>
   </div>
   <div style="margin-top:40px">
     <div class="tag">Empresas del grupo</div>
     <div class="marcas-grid">
       <div class="marca-card"><img src="img/logo-kelgin.jpg" alt="Kelgin"></div>
       <div class="marca-card"><img src="img/logo-biesar.jpg" alt="Biesar"></div>
-      <div class="marca-card"><span>Enfay</span></div>
+      <div class="marca-card"><img src="img/logo-enfay.jpg" alt="Enfay"></div>
       <div class="marca-card"><span>Lubeline</span></div>
       <div class="marca-card">
         <div style="text-align:center">
@@ -452,6 +454,7 @@ html{scroll-behavior:smooth}
       <div class="marca-card"><span>TRF</span></div>
       <div class="marca-card"><img src="img/logo-motus.jpg" alt="Motus"></div>
       <div class="marca-card"><img src="img/logo-fraylog.png" alt="Fraylog"></div>
+      <div class="marca-card"><img src="img/logo-acopio-durazno.jpg" alt="Acopio Durazno"></div>
     </div>
   </div>
   <div style="margin-top:36px">
