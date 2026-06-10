@@ -165,8 +165,10 @@ html{scroll-behavior:smooth}
 @keyframes introLogoIn{from{opacity:0;transform:scale(.88)}to{opacity:1;transform:scale(1)}}
 @keyframes introTagIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 @keyframes introOut{0%,65%{opacity:1;pointer-events:all}100%{opacity:0;pointer-events:none;visibility:hidden}}
-.intro-overlay{position:fixed;inset:0;background:#fff;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;animation:introOut 3s ease forwards}
-.intro-tagline{opacity:0;animation:introTagIn .55s ease .95s forwards;font-size:20px;font-weight:800;color:var(--o);letter-spacing:.5px;margin-top:-32px}
+.intro-overlay{position:fixed;inset:0;background:#fff;z-index:9999;display:flex;align-items:center;justify-content:center;animation:introOut 3s ease forwards}
+.intro-inner{display:flex;flex-direction:column;align-items:stretch;width:min(520px,75vw)}
+.intro-inner img{width:100%;height:auto;opacity:0;animation:introLogoIn .7s ease .1s forwards}
+.intro-tagline{opacity:0;animation:introTagIn .55s ease .95s forwards;font-weight:800;color:var(--o);margin-top:-10px;font-size:clamp(18px,4.2vw,44px);text-align:center;white-space:nowrap}
 
 @media(max-width:768px){
   .hero{grid-template-columns:1fr;gap:32px;padding:40px 1.5rem 36px}
@@ -202,8 +204,10 @@ html{scroll-behavior:smooth}
 
 <!-- INTRO SPLASH -->
 <div class="intro-overlay" aria-hidden="true">
-  <img src="img/logo-fraylog-sin-slogan.png" alt="Fraylog" style="height:220px;opacity:0;animation:introLogoIn .7s ease .1s forwards">
-  <div class="intro-tagline">Pasión x Soluciones</div>
+  <div class="intro-inner">
+    <img src="img/logo-fraylog-sin-slogan.png" alt="Fraylog">
+    <div class="intro-tagline">Pasión x Soluciones</div>
+  </div>
 </div>
 
 <!-- HERO -->
